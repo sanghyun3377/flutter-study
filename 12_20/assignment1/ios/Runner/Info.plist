@@ -15,6 +15,12 @@
 	<key>CFBundleName</key>
 	<string>assignment1</string>
 	<key>CFBundlePackageType</key>
+	<string>NSPhotoLibraryUsageDescription</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NSCameraUsageDescription</string>
+	<key>NSCameraUsageDescription</key>
+	<string>NSMicrophoneUsageDescription</string>
+	<key>NSMicrophoneUsageDescription</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>

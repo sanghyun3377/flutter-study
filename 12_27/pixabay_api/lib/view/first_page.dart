@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pixabay_api/model/hits.dart';
-import 'package:pixabay_api/repository/image_data_repository.dart';
+import 'package:pixabay_api/view/first_page_view_model.dart';
+import 'package:provider/provider.dart';
 
 class FristPage extends StatefulWidget {
   const FristPage({super.key});
@@ -11,18 +11,10 @@ class FristPage extends StatefulWidget {
 
 class _FristPageState extends State<FristPage> {
   final searchTextEditingController = TextEditingController();
-  final repository = NetworkImageRepository();
-  List<Hits> imagedata = [];
-
-  Future searchImage(String query) async {
-    imagedata = await repository.getHitsData(
-        query); // 레포지토리의 getHitsData함수(mapper하는) 실행 그리고 imagedata에 넣어줌
-    print(imagedata);
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
+    final firstPageViewModel = Provider.of<FirstPageViewModel>(context);
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -51,16 +43,18 @@ class _FristPageState extends State<FristPage> {
                   color: Color(0xFF4FB6B2),
                 ),
                 onPressed: () {
-                  searchImage(searchTextEditingController.text);
+                  firstPageViewModel
+                      .searchImage(searchTextEditingController.text);
                 },
               ),
             ),
           ),
           Expanded(
             child: GridView.builder(
-              itemCount: imagedata.length,
+              itemCount: firstPageViewModel.imagedata.length,
               itemBuilder: (context, index) {
-                return Image.network(imagedata[index].webformatURL);
+                return Image.network(
+                    firstPageViewModel.imagedata[index].webformatURL);
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
