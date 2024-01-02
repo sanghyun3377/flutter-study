@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:pixabay_api/view/viewmodel/first_page_view_model.dart';
+import 'package:pixabay_api/view/viewmodel/serve_screen_view_model.dart';
 import 'package:pixabay_api/view/widget/text_field_widget.dart';
 import 'package:provider/provider.dart';
 
-class FristPage extends StatelessWidget {
-  const FristPage({super.key});
+class ServeScreen extends StatelessWidget {
+  const ServeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final firstPageViewModel =
-    //     Provider.of<FirstPageViewModel>(context); // 뷰모델이랑 연결
-    final firstPageViewModel = context.watch<FirstPageViewModel>();
+    final serveScreenViewModel = context.watch<ServeScreenViewModel>();
     return Scaffold(
+      appBar: AppBar(
+        title: Text('서브스크린'),
+      ),
       body: SafeArea(
           child: Column(
         children: [
           TextFieldWidget(
-              controller: firstPageViewModel.searchTextEditingController,
+              controller: serveScreenViewModel.searchTextEditingController,
               suffixIconOnPressed: () {
-                context.read<FirstPageViewModel>().searchImage(
-                    firstPageViewModel.searchTextEditingController.text);
+                context.read<ServeScreenViewModel>().searchImage(
+                    serveScreenViewModel.searchTextEditingController.text);
                 // firstPageViewModel.searchImage(
                 //     firstPageViewModel.searchTextEditingController.text);
               }),
@@ -30,10 +31,10 @@ class FristPage extends StatelessWidget {
                 crossAxisSpacing: 32,
                 mainAxisSpacing: 32,
               ),
-              itemCount: firstPageViewModel.imagedata.length,
+              itemCount: serveScreenViewModel.imagedata.length,
               itemBuilder: (context, index) {
                 return Image.network(
-                    firstPageViewModel.imagedata[index].webformatURL);
+                    serveScreenViewModel.imagedata[index].webformatURL);
               },
             ),
           ),
