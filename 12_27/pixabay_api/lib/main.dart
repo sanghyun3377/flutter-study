@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pixabay_api/view/page/first_page.dart';
+import 'package:pixabay_api/routers.dart';
 import 'package:pixabay_api/view/viewmodel/first_page_view_model.dart';
 import 'package:pixabay_api/main_screen.dart';
 import 'package:pixabay_api/view/viewmodel/secound_page_view_model.dart';
@@ -20,17 +20,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => FirstPageViewModel(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => SecoundPageViewModel(),
-        ),
-      ],
-      child: MainScreen(),
-    ));
+    return MaterialApp.router(
+      routerConfig: router,
+    );
   }
 }

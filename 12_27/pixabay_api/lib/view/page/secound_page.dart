@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pixabay_api/view/screen/serve_screen.dart';
 import 'package:pixabay_api/view/viewmodel/first_page_view_model.dart';
 import 'package:pixabay_api/view/viewmodel/secound_page_view_model.dart';
@@ -23,8 +24,7 @@ class SecoundPage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ServeScreen()));
+                  context.push(Uri(path: '/serve').toString());
                 },
                 child: Text('servescreen')),
             TextFieldWidget(
