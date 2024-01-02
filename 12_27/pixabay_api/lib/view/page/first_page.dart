@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pixabay_api/view/first_page_view_model.dart';
-import 'package:pixabay_api/view/text_field_widget.dart';
+import 'package:pixabay_api/view/page/first_page_view_model.dart';
+import 'package:pixabay_api/view/widget/text_field_widget.dart';
 import 'package:provider/provider.dart';
 
 class FristPage extends StatelessWidget {
@@ -8,8 +8,9 @@ class FristPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final firstPageViewModel =
-        Provider.of<FirstPageViewModel>(context); // 뷰모델이랑 연결
+    // final firstPageViewModel =
+    //     Provider.of<FirstPageViewModel>(context); // 뷰모델이랑 연결
+    final firstPageViewModel = context.watch<FirstPageViewModel>();
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -17,8 +18,10 @@ class FristPage extends StatelessWidget {
           TextFieldWidget(
               controller: firstPageViewModel.searchTextEditingController,
               suffixIconOnPressed: () {
-                firstPageViewModel.searchImage(
+                context.read<FirstPageViewModel>().searchImage(
                     firstPageViewModel.searchTextEditingController.text);
+                // firstPageViewModel.searchImage(
+                //     firstPageViewModel.searchTextEditingController.text);
               }),
           Expanded(
             child: GridView.builder(
