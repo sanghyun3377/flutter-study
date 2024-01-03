@@ -11,6 +11,7 @@ class FristPage extends StatelessWidget {
     // final firstPageViewModel =
     //     Provider.of<FirstPageViewModel>(context); // 뷰모델이랑 연결
     final firstPageViewModel = context.watch<FirstPageViewModel>();
+    final state = firstPageViewModel.mainState;
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -30,10 +31,9 @@ class FristPage extends StatelessWidget {
                 crossAxisSpacing: 32,
                 mainAxisSpacing: 32,
               ),
-              itemCount: firstPageViewModel.imagedata.length,
+              itemCount: state.imagedata.length,
               itemBuilder: (context, index) {
-                return Image.network(
-                    firstPageViewModel.imagedata[index].webformatURL);
+                return Image.network(state.imagedata[index].webformatURL);
               },
             ),
           ),

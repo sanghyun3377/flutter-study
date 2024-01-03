@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:pixabay_api/main_screen.dart';
+import 'package:pixabay_api/view/screen/main_screen.dart';
 import 'package:pixabay_api/view/screen/serve_screen.dart';
 import 'package:pixabay_api/view/viewmodel/first_page_view_model.dart';
 import 'package:pixabay_api/view/viewmodel/secound_page_view_model.dart';

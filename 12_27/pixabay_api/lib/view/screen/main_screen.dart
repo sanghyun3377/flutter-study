@@ -16,6 +16,7 @@ class _MainScreenState extends State<MainScreen> {
     FristPage(),
     SecoundPage(),
   ];
+  
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
