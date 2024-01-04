@@ -19,8 +19,8 @@ class ServeScreen extends StatelessWidget {
           TextFieldWidget(
               controller: serveScreenViewModel.searchTextEditingController,
               suffixIconOnPressed: () {
-                context.read<ServeScreenViewModel>().searchImage(
-                    serveScreenViewModel.searchTextEditingController.text);
+                // context.read<ServeScreenViewModel>().searchImage(
+                //     serveScreenViewModel.searchTextEditingController.text);
                 // firstPageViewModel.searchImage(
                 //     firstPageViewModel.searchTextEditingController.text);
               }),

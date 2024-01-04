@@ -30,8 +30,8 @@ class SecoundPage extends StatelessWidget {
             TextFieldWidget(
                 controller: secoundPageViewModel.searchTextEditingController,
                 suffixIconOnPressed: () {
-                  context.read<SecoundPageViewModel>().searchImage(
-                      secoundPageViewModel.searchTextEditingController.text);
+                  // context.read<SecoundPageViewModel>().searchImage(
+                  //     secoundPageViewModel.searchTextEditingController.text);
                   // firstPageViewModel.searchImage(
                   //     firstPageViewModel.searchTextEditingController.text);
                 }),
