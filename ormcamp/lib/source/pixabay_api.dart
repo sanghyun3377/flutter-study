@@ -3,11 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:ormcamp/dto/pixabay_dto.dart';
 
 class PixabayApi {
-  final Dio _dio;
-
-  const PixabayApi({
-    required Dio dio,
-  }) : _dio = dio;
+  final _dio = Dio();
 
   Future<PixabayDto> getPixabayData(String query) async {
     final url =
