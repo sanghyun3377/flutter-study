@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kakaotalk/widget/avatarWidget.dart';
 
-class ChatListTile extends StatelessWidget {
-  const ChatListTile(
+class ChatListTiles extends StatelessWidget {
+  const ChatListTiles(
       {super.key,
       required this.title,
       required this.subtitle,

@@ -26,60 +26,60 @@ class ChatingListPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(36),
               child: Image.asset('assets/kakaotalk.png')),
           TwoAvatarWidget(),
-          ChatListTile(
+          ChatListTiles(
               title: '김민수',
               subtitle: '반갑습니다다다닫다ㅏㄷ',
               date: '오전 1:06',
               imgURL: 'https://picsum.photos/100/101'),
-          ChatListTile(
+          ChatListTiles(
               title: '김유리',
               subtitle: '사진',
               date: '오후 9:06',
               imgURL: 'https://picsum.photos/100/102'),
-          ChatListTile(
+          ChatListTiles(
               title: '유명한밈전파자',
               subtitle:
                   '장충동 왕족발 보쌈 이거보세용요요요요요요용요용요ㅛㅇ요맛있게 먹어요요요요요 완전긴 텍스트 rmfwkfdsafdsfdsfdsfsfdsfdsfdsfkdsoafmdksoafkas',
               date: '1일 전',
               imgURL: 'https://picsum.photos/100/103'),
-          ChatListTile(
+          ChatListTiles(
               title: '훈이',
               subtitle: '훈이입니다 당신은 누구십니깐???????',
               date: '10일 전',
               imgURL: 'https://picsum.photos/100/104'),
           ThreeAvatarWidget(),
-          ChatListTile(
+          ChatListTiles(
               title: '원장님',
               subtitle:
                   '안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/106'),
-          ChatListTile(
+          ChatListTiles(
               title: '맹구',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/107'),
-          ChatListTile(
+          ChatListTiles(
               title: '짱구엄마',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/108'),
-          ChatListTile(
+          ChatListTiles(
               title: '짱아',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/109'),
-          ChatListTile(
+          ChatListTiles(
               title: '나공주',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/110'),
-          ChatListTile(
+          ChatListTiles(
               title: '흰둥이',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
               imgURL: 'https://picsum.photos/100/111'),
-          ChatListTile(
+          ChatListTiles(
               title: '짱구아빠',
               subtitle: '안녕하세요 저는 철수예요',
               date: '오전 11:06',
