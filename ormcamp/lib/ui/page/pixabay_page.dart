@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
 import 'package:provider/provider.dart';
@@ -11,10 +13,24 @@ class PixabayPage extends StatefulWidget {
 
 class _PixabayPageState extends State<PixabayPage> {
   var controller = TextEditingController();
+  StreamSubscription? subscription;
+  @override
+  void initState() {
+    Future.microtask(() {
+      subscription =
+          context.read<PixabayPageViewModel>().streamController.listen((event) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(event)),
+        );
+      });
+    });
+    super.initState();
+  }
 
   @override
   void dispose() {
     controller.dispose();
+    subscription?.cancel();
     super.dispose();
   }
 
