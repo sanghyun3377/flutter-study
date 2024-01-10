@@ -7,11 +7,11 @@ abstract interface class ImageDataRepository {
 }
 
 class NetworkImageDataRepository implements ImageDataRepository {
-  var pixabayApi = PixabayApi();
+  final _pixabayApi = PixabayApi();
 
   @override
   Future<List<Hits>> getHitsData(String query) async {
-    var res = await pixabayApi.getPixabayData(query);
+    var res = await _pixabayApi.getPixabayData(query);
     var data = res.hits?.map((e) => e.toHits()).toList() ?? [];
     return data;
   }

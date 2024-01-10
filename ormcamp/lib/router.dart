@@ -1,4 +1,6 @@
+import 'package:flutter/src/widgets/basic.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
 import 'package:ormcamp/ui/screen/main_screen.dart';
 import 'package:ormcamp/ui/screen/main_screen_view_model.dart';
 import 'package:provider/provider.dart';
@@ -9,10 +11,19 @@ final router = GoRouter(
 // 첫번째 시작 라우트 설정
     GoRoute(
       path: '/', // initialLocation이거 해서 사용가능
-      builder: (context, state) => ChangeNotifierProvider(
-        create: (_) => MainScreenViewModel(),
-        child: const MainScreen(),
-      ),
+      builder: (context, state) {
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(
+              create: (_) => MainScreenViewModel(),
+            ),
+            ChangeNotifierProvider(
+              create: (_) => PixabayPageViewModel(),
+            ),
+          ],
+          child: const MainScreen(),
+        );
+      },
     ),
   ],
 );

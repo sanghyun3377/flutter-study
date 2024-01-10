@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
+import 'package:provider/provider.dart';
 
-class PixabayPage extends StatelessWidget {
+class PixabayPage extends StatefulWidget {
   const PixabayPage({super.key});
 
   @override
+  State<PixabayPage> createState() => _PixabayPageState();
+}
+
+class _PixabayPageState extends State<PixabayPage> {
+  var controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var controller = TextEditingController();
+    final pixabayPageViewModel = context.watch<PixabayPageViewModel>();
     return SafeArea(
       child: Column(
         children: [
@@ -43,10 +58,26 @@ class PixabayPage extends StatelessWidget {
               // 검색아이콘
               suffixIcon: IconButton(
                 icon: const Icon(Icons.search),
-                onPressed: () async {},
+                onPressed: () async {
+                  pixabayPageViewModel.search(controller.text);
+                },
               ),
             ),
           ),
+          Expanded(
+              child: GridView.builder(
+                  itemCount: pixabayPageViewModel.hitsdata.length, //item 개수
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, //1 개의 행에 보여줄 item 개수
+                    childAspectRatio: 2 / 3, //item 의 가로 1, 세로 2 의 비율
+                    mainAxisSpacing: 20, //수평 Padding
+                    crossAxisSpacing: 10, //수직 Padding
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    //item 의 반목문 항목 형성
+                    final imageItem = pixabayPageViewModel.hitsdata[index];
+                    return Image.network(imageItem.previewURL);
+                  }))
         ],
       ),
     );
