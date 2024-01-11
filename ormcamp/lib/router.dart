@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
 import 'package:ormcamp/ui/page/subway_page_view_model.dart';
+import 'package:ormcamp/ui/screen/image_detail_screen.dart';
 import 'package:ormcamp/ui/screen/main_screen.dart';
 import 'package:ormcamp/ui/screen/main_screen_view_model.dart';
 import 'package:provider/provider.dart';
@@ -28,5 +29,9 @@ final router = GoRouter(
         );
       },
     ),
+    GoRoute(
+      path: '/image-detail',
+      builder: (context, state) => const ImageDetailScreen(),
+    )
   ],
 );

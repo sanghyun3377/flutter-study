@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -92,7 +93,13 @@ class _PixabayPageState extends State<PixabayPage> {
                   itemBuilder: (BuildContext context, int index) {
                     //item 의 반목문 항목 형성
                     final imageItem = pixabayPageViewModel.hitsdata[index];
-                    return Image.network(imageItem.previewURL);
+                    return GestureDetector(
+                        onTap: () {
+                          context.push(Uri(
+                            path: '/image-detail', // 내가 임의로 설정
+                          ).toString());
+                        },
+                        child: Image.network(imageItem.previewURL));
                   }))
         ],
       ),

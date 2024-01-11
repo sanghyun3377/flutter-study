@@ -7,7 +7,7 @@ class MainScreenViewModel with ChangeNotifier {
     PixabayPage(),
     SubwayPage(),
   ];
-  List<Widget> get pageList => _pageList;
+  List<Widget> get pageList => List.unmodifiable(_pageList);
   int _selectedIndex = 0; // 선택된 페이지
   int get selectedIndex => _selectedIndex;
   onItemTapped(int index) {
