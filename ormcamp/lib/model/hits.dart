@@ -12,4 +12,9 @@ class Hits {
     required this.likes,
     required this.comments,
   });
+
+  @override
+  String toString() {
+    return 'Hits(tags: $tags, previewURL: $previewURL, downloads: $downloads, likes: $likes, comments: $comments)';
+  }
 }

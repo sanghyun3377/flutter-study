@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ormcamp/di_setup.dart';
+import 'package:ormcamp/model/hits.dart';
 import 'package:ormcamp/ui/page/pixabay_page_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -95,6 +97,12 @@ class _PixabayPageState extends State<PixabayPage> {
                     final imageItem = pixabayPageViewModel.hitsdata[index];
                     return GestureDetector(
                         onTap: () {
+                          Hits hits = getIt<Hits>();
+                          hits.previewURL = imageItem.previewURL;
+                          hits.comments = imageItem.comments;
+                          hits.likes = imageItem.likes;
+                          hits.tags = imageItem.tags;
+                          hits.downloads = imageItem.downloads;
                           context.push(Uri(
                             path: '/image-detail', // 내가 임의로 설정
                           ).toString());
