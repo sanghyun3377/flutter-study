@@ -78,7 +78,7 @@ class _PixabayPageState extends State<PixabayPage> {
               suffixIcon: IconButton(
                 icon: const Icon(Icons.search),
                 onPressed: () async {
-                  pixabayPageViewModel.search(controller.text);
+                  pixabayPageViewModel.searchImage(controller.text);
                 },
               ),
             ),

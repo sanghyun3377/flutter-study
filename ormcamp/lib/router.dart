@@ -17,10 +17,10 @@ final router = GoRouter(
         return MultiProvider(
           providers: [
             ChangeNotifierProvider(
-              create: (_) => MainScreenViewModel(),
+              create: (_) => getIt<MainScreenViewModel>(),
             ),
             ChangeNotifierProvider(
-              create: (_) => PixabayPageViewModel(repository: getIt()),
+              create: (_) => getIt<PixabayPageViewModel>(),
             ),
             ChangeNotifierProvider(
               create: (_) => SubwayPageViewModel(),
